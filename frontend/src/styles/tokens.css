@@ -1,0 +1,32 @@
+:root {
+  /* ── Backgrounds ── */
+  --color-bg-primary: #000000;
+  --color-bg-secondary: #0a0a0a;
+  --color-bg-tertiary: #121212;
+
+  /* ── Text ── */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a0a0a0;
+  --color-text-muted: #555555;
+
+  /* ── Accent (Golden Yellow — cinematic, warm) ── */
+  --color-accent-primary: #f9bc05;
+  --color-accent-hover: #ffc929;
+  --color-accent-subtle: rgba(249, 188, 5, 0.12);
+
+  /* ── Borders ── */
+  --color-border-primary: #1a1a1a;
+  --color-border-subtle: #111111;
+
+  /* ── Typography ── */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Roboto Mono', monospace;
+
+  /* ── Spacing / Layout ── */
+  --nav-height: 64px;
+  --content-max-width: 1200px;
+  --page-padding-x: clamp(1rem, 4vw, 3rem);
+
+  /* ── Transitions ── */
+  --transition-fast: 0.15s linear;
+}

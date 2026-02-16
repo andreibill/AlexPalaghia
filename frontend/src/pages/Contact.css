@@ -1,0 +1,71 @@
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--nav-height) var(--page-padding-x) 0;
+  text-align: center;
+}
+
+.contact__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.contact__name {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.contact__title {
+  margin-top: 1.25rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text-secondary);
+}
+
+.contact__location {
+  margin-top: 0.5rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1vw, 0.85rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.contact__email {
+  margin-top: 2.5rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.3vw, 1.1rem);
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary);
+  transition: color var(--transition-fast);
+}
+
+.contact__email:hover {
+  color: var(--color-accent-primary);
+}
+
+.contact__socials {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.contact__socials a {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+}
+
+.contact__socials a:hover {
+  color: var(--color-accent-primary);
+}
