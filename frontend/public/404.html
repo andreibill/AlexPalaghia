@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Redirect all paths to index.html for SPA client-side routing.
+      // Stores the path in sessionStorage so the app can restore it.
+      sessionStorage.setItem('redirect', location.pathname + location.search + location.hash);
+      location.replace('/AlexPalaghia/');
+    </script>
+  </head>
+</html>
