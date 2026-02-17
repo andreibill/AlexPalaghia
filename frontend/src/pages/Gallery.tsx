@@ -1,6 +1,11 @@
-import { galleryPhotos } from '../data/gallery';
+import { useGallery } from '../api';
 
 export default function Gallery() {
+  const { data: galleryPhotos, isLoading, error } = useGallery();
+
+  if (isLoading) return <div className="page"><p className="loading">Loading...</p></div>;
+  if (error) return <div className="page"><p className="error">Something went wrong.</p></div>;
+
   return (
     <div className="page">
       <p className="page-description">
@@ -8,8 +13,8 @@ export default function Gallery() {
       </p>
 
       <div className="gallery-grid">
-        {galleryPhotos.map((photo) => (
-          <div key={photo.id} className="gallery-card">
+        {(galleryPhotos ?? []).map((photo) => (
+          <div key={photo._id} className="gallery-card">
             <img
               className="gallery-card__image"
               src={photo.src}

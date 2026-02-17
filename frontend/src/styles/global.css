@@ -440,6 +440,19 @@ h3 {
   }
 }
 
+/* ── Loading / Error States ── */
+.loading,
+.error {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.error {
+  color: #e25c5c;
+}
+
 /* ── Reduced Motion ── */
 @media (prefers-reduced-motion: reduce) {
   *,

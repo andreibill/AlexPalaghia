@@ -1,10 +1,12 @@
 import { useEffect, useRef } from 'react';
 import TransitionLink from '../components/TransitionLink';
-import { films } from '../data/films';
+import { useFilms, useSettings } from '../api';
 import './Home.css';
 
 export default function Home() {
   const sectionsRef = useRef<HTMLDivElement>(null);
+  const { data: films, isLoading: filmsLoading, error: filmsError } = useFilms();
+  const { data: settings, isLoading: settingsLoading, error: settingsError } = useSettings();
 
   useEffect(() => {
     const root = sectionsRef.current;
@@ -25,9 +27,15 @@ export default function Home() {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [films]);
 
-  const featured = films.slice(0, 4);
+  const isLoading = filmsLoading || settingsLoading;
+  const error = filmsError || settingsError;
+
+  if (isLoading) return <div className="page"><p className="loading">Loading...</p></div>;
+  if (error) return <div className="page"><p className="error">Something went wrong.</p></div>;
+
+  const featured = (films ?? []).slice(0, 4);
 
   return (
     <>
@@ -38,7 +46,9 @@ export default function Home() {
             <h1 className="home-hero__name">Alex Palaghia</h1>
           </div>
           <div className="home-hero__accent" />
-          <p className="home-hero__tagline">Film Director</p>
+          <p className="home-hero__tagline">
+            {settings?.heroTagline || 'Film Director'}
+          </p>
         </div>
 
         <div className="home-hero__scroll">
@@ -53,13 +63,10 @@ export default function Home() {
         <section className="home-section home-about">
           <div className="home-section__inner">
             <span className="home-section__label">About</span>
-            <h2>A story told through the lens</h2>
+            <h2>{settings?.aboutSectionHeading || 'A story told through the lens'}</h2>
             <p className="home-about__text">
-              Alex Palaghia is a Romanian film director whose work spans
-              narrative cinema, documentary, and commercial projects. With a
-              sharp eye for composition and a deep commitment to authentic
-              storytelling, he crafts visuals that linger long after the credits
-              roll.
+              {settings?.aboutSectionText ||
+                'Alex Palaghia is a Romanian film director whose work spans narrative cinema, documentary, and commercial projects. With a sharp eye for composition and a deep commitment to authentic storytelling, he crafts visuals that linger long after the credits roll.'}
             </p>
             <TransitionLink to="/about" className="home-section__link">
               More about Alex
@@ -102,10 +109,10 @@ export default function Home() {
         <section className="home-section home-cta">
           <div className="home-section__inner home-cta__inner">
             <span className="home-section__label">Contact</span>
-            <h2>Let's work together</h2>
+            <h2>{settings?.ctaHeading || "Let's work together"}</h2>
             <p className="home-cta__text">
-              Have a project in mind? Get in touch and let's create something
-              unforgettable.
+              {settings?.ctaText ||
+                "Have a project in mind? Get in touch and let's create something unforgettable."}
             </p>
             <TransitionLink to="/contact" className="home-cta__button">
               Get in touch

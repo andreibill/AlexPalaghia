@@ -1,22 +1,27 @@
-import { commercials, getYouTubeId } from '../data/commercials';
+import { useCommercials, getYouTubeId } from '../api';
 import YouTubeEmbed from '../components/YouTubeEmbed';
 import './Commercial.css';
 
 export default function Commercial() {
+  const { data: commercials, isLoading, error } = useCommercials();
+
+  if (isLoading) return <div className="page"><p className="loading">Loading...</p></div>;
+  if (error) return <div className="page"><p className="error">Something went wrong.</p></div>;
+
   return (
     <div className="page">
       <p className="page-description">
         Brand stories brought to life through cinematic direction.
       </p>
 
-      {commercials.length === 0 ? (
+      {!commercials || commercials.length === 0 ? (
         <p className="commercial-empty">Commercial work coming soon.</p>
       ) : (
         <div className="commercial-list">
           {commercials.map((item) => {
             const videoId = getYouTubeId(item.youtubeUrl);
             return (
-              <article key={item.id} className="commercial-item">
+              <article key={item._id} className="commercial-item">
                 {videoId && (
                   <YouTubeEmbed videoId={videoId} title={item.title} />
                 )}

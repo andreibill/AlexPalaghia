@@ -1,10 +1,13 @@
 import { useParams } from 'react-router';
 import TransitionLink from '../components/TransitionLink';
-import { films } from '../data/films';
+import { useFilm } from '../api';
 
 export default function FilmDetail() {
   const { slug } = useParams<{ slug: string }>();
-  const film = films.find((f) => f.slug === slug);
+  const { data: film, isLoading, error } = useFilm(slug);
+
+  if (isLoading) return <div className="page"><p className="loading">Loading...</p></div>;
+  if (error) return <div className="page"><p className="error">Something went wrong.</p></div>;
 
   if (!film) {
     return (
@@ -26,7 +29,7 @@ export default function FilmDetail() {
       <div className="film-detail">
         <img
           className="film-detail__poster"
-          src={`https://placehold.co/480x720/1a1a1a/555555?text=${encodeURIComponent(film.title)}`}
+          src={film.thumbnail}
           alt={film.title}
           loading="lazy"
         />
