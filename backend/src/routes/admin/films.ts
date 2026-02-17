@@ -46,7 +46,7 @@ router.post('/', async (req: Request, res: Response) => {
       thumbnail,
       sortOrder: Number(sortOrder) || 0,
     });
-    res.redirect('/admin/films');
+    res.redirect('/films');
   } catch (err: any) {
     res.render('admin/layout', {
       body: await renderView(res, 'admin/films/form', {
@@ -64,7 +64,7 @@ router.post('/', async (req: Request, res: Response) => {
 // Edit film form
 router.get('/:id/edit', async (req: Request, res: Response) => {
   const film = await Film.findById(req.params.id);
-  if (!film) { res.redirect('/admin/films'); return; }
+  if (!film) { res.redirect('/films'); return; }
 
   res.render('admin/layout', {
     body: await renderView(res, 'admin/films/form', {
@@ -95,7 +95,7 @@ router.post('/:id', async (req: Request, res: Response) => {
       thumbnail,
       sortOrder: Number(sortOrder) || 0,
     });
-    res.redirect('/admin/films');
+    res.redirect('/films');
   } catch (err: any) {
     res.render('admin/layout', {
       body: await renderView(res, 'admin/films/form', {
@@ -113,7 +113,7 @@ router.post('/:id', async (req: Request, res: Response) => {
 // Delete film
 router.post('/:id/delete', async (req: Request, res: Response) => {
   await Film.findByIdAndDelete(req.params.id);
-  res.redirect('/admin/films');
+  res.redirect('/films');
 });
 
 export default router;

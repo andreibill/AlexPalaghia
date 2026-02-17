@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 export function requireAuth(req: Request, res: Response, next: NextFunction): void {
   const token = req.cookies?.admin_token;
   if (!token) {
-    res.redirect('/admin/login');
+    res.redirect('/login');
     return;
   }
 
@@ -15,6 +15,6 @@ export function requireAuth(req: Request, res: Response, next: NextFunction): vo
     next();
   } catch {
     res.clearCookie('admin_token');
-    res.redirect('/admin/login');
+    res.redirect('/login');
   }
 }

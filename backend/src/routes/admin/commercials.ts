@@ -38,7 +38,7 @@ router.post('/', async (req: Request, res: Response) => {
       description: description || '',
       sortOrder: Number(sortOrder) || 0,
     });
-    res.redirect('/admin/commercials');
+    res.redirect('/commercials');
   } catch (err: any) {
     res.render('admin/layout', {
       body: await renderView(res, 'admin/commercials/form', {
@@ -55,7 +55,7 @@ router.post('/', async (req: Request, res: Response) => {
 
 router.get('/:id/edit', async (req: Request, res: Response) => {
   const commercial = await Commercial.findById(req.params.id);
-  if (!commercial) { res.redirect('/admin/commercials'); return; }
+  if (!commercial) { res.redirect('/commercials'); return; }
 
   res.render('admin/layout', {
     body: await renderView(res, 'admin/commercials/form', {
@@ -80,7 +80,7 @@ router.post('/:id', async (req: Request, res: Response) => {
       description: description || '',
       sortOrder: Number(sortOrder) || 0,
     });
-    res.redirect('/admin/commercials');
+    res.redirect('/commercials');
   } catch (err: any) {
     res.render('admin/layout', {
       body: await renderView(res, 'admin/commercials/form', {
@@ -97,7 +97,7 @@ router.post('/:id', async (req: Request, res: Response) => {
 
 router.post('/:id/delete', async (req: Request, res: Response) => {
   await Commercial.findByIdAndDelete(req.params.id);
-  res.redirect('/admin/commercials');
+  res.redirect('/commercials');
 });
 
 export default router;

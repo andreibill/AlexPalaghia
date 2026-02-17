@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Static files for admin dashboard
-app.use('/admin/static', express.static(path.join(__dirname, 'public')));
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // CORS for API routes only
 const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
@@ -41,8 +41,8 @@ app.use('/api/commercials', apiCommercials);
 app.use('/api/gallery', apiGallery);
 app.use('/api/settings', apiSettings);
 
-// Admin routes (cookie-auth protected)
-app.use('/admin', adminRouter);
+// Admin routes (cookie-auth protected) — mounted at root
+app.use('/', adminRouter);
 
 // Error handler
 app.use(errorHandler);

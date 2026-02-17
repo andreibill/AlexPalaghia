@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><%= typeof pageTitle !== 'undefined' ? pageTitle + ' — ' : '' %>Admin — Alex Palaghia</title>
-  <link rel="stylesheet" href="/admin/static/admin.css">
+  <link rel="stylesheet" href="/static/admin.css">
 </head>
 <body>
   <div class="admin-layout">
@@ -14,13 +14,13 @@
         <span>Admin</span>
       </div>
       <ul class="sidebar__nav">
-        <li><a href="/admin" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'dashboard' ? ' sidebar__link--active' : '' %>">Dashboard</a></li>
-        <li><a href="/admin/films" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'films' ? ' sidebar__link--active' : '' %>">Films</a></li>
-        <li><a href="/admin/commercials" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'commercials' ? ' sidebar__link--active' : '' %>">Commercials</a></li>
-        <li><a href="/admin/gallery" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'gallery' ? ' sidebar__link--active' : '' %>">Gallery</a></li>
-        <li><a href="/admin/settings" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'settings' ? ' sidebar__link--active' : '' %>">Settings</a></li>
+        <li><a href="/" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'dashboard' ? ' sidebar__link--active' : '' %>">Dashboard</a></li>
+        <li><a href="/films" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'films' ? ' sidebar__link--active' : '' %>">Films</a></li>
+        <li><a href="/commercials" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'commercials' ? ' sidebar__link--active' : '' %>">Commercials</a></li>
+        <li><a href="/gallery" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'gallery' ? ' sidebar__link--active' : '' %>">Gallery</a></li>
+        <li><a href="/settings" class="sidebar__link<%= typeof activePage !== 'undefined' && activePage === 'settings' ? ' sidebar__link--active' : '' %>">Settings</a></li>
       </ul>
-      <form method="POST" action="/admin/logout" class="sidebar__logout">
+      <form method="POST" action="/logout" class="sidebar__logout">
         <button type="submit" class="btn btn--ghost">Logout</button>
       </form>
     </nav>

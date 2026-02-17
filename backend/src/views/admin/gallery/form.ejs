@@ -5,7 +5,7 @@
 <% } %>
 
 <div class="card">
-  <form method="POST" action="<%= isEdit ? '/admin/gallery/' + photo._id : '/admin/gallery' %>">
+  <form method="POST" action="<%= isEdit ? '/gallery/' + photo._id : '/gallery' %>">
     <div class="form-group">
       <label for="src">Image URL</label>
       <input type="url" id="src" name="src" value="<%= photo ? photo.src : '' %>" required>
@@ -25,7 +25,7 @@
 
     <div class="form-actions">
       <button type="submit" class="btn btn--primary"><%= isEdit ? 'Save Changes' : 'Add Photo' %></button>
-      <a href="/admin/gallery" class="btn btn--secondary">Cancel</a>
+      <a href="/gallery" class="btn btn--secondary">Cancel</a>
     </div>
   </form>
 </div>

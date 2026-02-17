@@ -1,12 +1,12 @@
 <div class="page-header">
   <h1>Commercials</h1>
-  <a href="/admin/commercials/new" class="btn btn--primary">Add Commercial</a>
+  <a href="/commercials/new" class="btn btn--primary">Add Commercial</a>
 </div>
 
 <% if (commercials.length === 0) { %>
   <div class="empty-state">
     <p>No commercials yet.</p>
-    <a href="/admin/commercials/new" class="btn btn--primary">Add your first commercial</a>
+    <a href="/commercials/new" class="btn btn--primary">Add your first commercial</a>
   </div>
 <% } else { %>
   <table class="data-table">
@@ -27,8 +27,8 @@
           <td><%= c.year %></td>
           <td><%= c.sortOrder %></td>
           <td class="data-table__actions">
-            <a href="/admin/commercials/<%= c._id %>/edit" class="btn btn--secondary btn--sm">Edit</a>
-            <form method="POST" action="/admin/commercials/<%= c._id %>/delete" onsubmit="return confirm('Delete this commercial?')">
+            <a href="/commercials/<%= c._id %>/edit" class="btn btn--secondary btn--sm">Edit</a>
+            <form method="POST" action="/commercials/<%= c._id %>/delete" onsubmit="return confirm('Delete this commercial?')">
               <button type="submit" class="btn btn--danger btn--sm">Delete</button>
             </form>
           </td>

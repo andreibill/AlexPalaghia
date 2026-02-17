@@ -32,12 +32,12 @@ router.post('/login', async (req: Request, res: Response) => {
     sameSite: 'lax',
   });
 
-  res.redirect('/admin');
+  res.redirect('/');
 });
 
 router.post('/logout', (_req: Request, res: Response) => {
   res.clearCookie('admin_token');
-  res.redirect('/admin/login');
+  res.redirect('/login');
 });
 
 export default router;

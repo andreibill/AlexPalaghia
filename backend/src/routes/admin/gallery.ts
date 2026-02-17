@@ -35,7 +35,7 @@ router.post('/', async (req: Request, res: Response) => {
       alt,
       sortOrder: Number(sortOrder) || 0,
     });
-    res.redirect('/admin/gallery');
+    res.redirect('/gallery');
   } catch (err: any) {
     res.render('admin/layout', {
       body: await renderView(res, 'admin/gallery/form', {
@@ -52,7 +52,7 @@ router.post('/', async (req: Request, res: Response) => {
 
 router.get('/:id/edit', async (req: Request, res: Response) => {
   const photo = await GalleryPhoto.findById(req.params.id);
-  if (!photo) { res.redirect('/admin/gallery'); return; }
+  if (!photo) { res.redirect('/gallery'); return; }
 
   res.render('admin/layout', {
     body: await renderView(res, 'admin/gallery/form', {
@@ -74,7 +74,7 @@ router.post('/:id', async (req: Request, res: Response) => {
       alt,
       sortOrder: Number(sortOrder) || 0,
     });
-    res.redirect('/admin/gallery');
+    res.redirect('/gallery');
   } catch (err: any) {
     res.render('admin/layout', {
       body: await renderView(res, 'admin/gallery/form', {
@@ -91,7 +91,7 @@ router.post('/:id', async (req: Request, res: Response) => {
 
 router.post('/:id/delete', async (req: Request, res: Response) => {
   await GalleryPhoto.findByIdAndDelete(req.params.id);
-  res.redirect('/admin/gallery');
+  res.redirect('/gallery');
 });
 
 export default router;
