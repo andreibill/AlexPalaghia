@@ -1,0 +1,31 @@
+<h1>Dashboard</h1>
+<p class="page-subtitle">Welcome back. Here's a quick overview.</p>
+
+<div class="summary-cards">
+  <a href="/admin/films" class="summary-card">
+    <span class="summary-card__count"><%= filmCount %></span>
+    <span class="summary-card__label">Films</span>
+  </a>
+  <a href="/admin/commercials" class="summary-card">
+    <span class="summary-card__count"><%= commercialCount %></span>
+    <span class="summary-card__label">Commercials</span>
+  </a>
+  <a href="/admin/gallery" class="summary-card">
+    <span class="summary-card__count"><%= photoCount %></span>
+    <span class="summary-card__label">Gallery Photos</span>
+  </a>
+  <a href="/admin/settings" class="summary-card">
+    <span class="summary-card__count">&mdash;</span>
+    <span class="summary-card__label">Site Settings</span>
+  </a>
+</div>
+
+<div class="quick-actions">
+  <h2>Quick Actions</h2>
+  <div class="quick-actions__grid">
+    <a href="/admin/films/new" class="btn btn--primary">Add Film</a>
+    <a href="/admin/commercials/new" class="btn btn--primary">Add Commercial</a>
+    <a href="/admin/gallery/new" class="btn btn--primary">Add Photo</a>
+    <a href="/admin/settings" class="btn btn--secondary">Edit Settings</a>
+  </div>
+</div>

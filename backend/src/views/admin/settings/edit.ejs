@@ -1,0 +1,92 @@
+<h1>Site Settings</h1>
+<p class="page-subtitle">Manage your portfolio's content and social links.</p>
+
+<div class="card">
+  <form method="POST" action="/admin/settings">
+    <h2 style="margin-bottom: 16px;">Home Page</h2>
+
+    <div class="form-group">
+      <label for="heroTagline">Hero Tagline</label>
+      <input type="text" id="heroTagline" name="heroTagline" value="<%= settings.heroTagline %>">
+      <span class="form-hint">Displayed below "Alex Palaghia" on the home page</span>
+    </div>
+
+    <div class="form-group">
+      <label for="aboutSectionHeading">About Section Heading</label>
+      <input type="text" id="aboutSectionHeading" name="aboutSectionHeading" value="<%= settings.aboutSectionHeading %>">
+    </div>
+
+    <div class="form-group">
+      <label for="aboutSectionText">About Section Text</label>
+      <textarea id="aboutSectionText" name="aboutSectionText"><%= settings.aboutSectionText %></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="ctaHeading">CTA Heading</label>
+      <input type="text" id="ctaHeading" name="ctaHeading" value="<%= settings.ctaHeading %>">
+    </div>
+
+    <div class="form-group">
+      <label for="ctaText">CTA Text</label>
+      <textarea id="ctaText" name="ctaText"><%= settings.ctaText %></textarea>
+    </div>
+
+    <hr style="margin: 32px 0; border: none; border-top: 1px solid #e8e8ed;">
+
+    <h2 style="margin-bottom: 16px;">About Page</h2>
+
+    <div class="form-group">
+      <label for="aboutBio">Bio Paragraphs</label>
+      <textarea id="aboutBio" name="aboutBio" style="min-height: 200px;"><%= settings.aboutBio ? settings.aboutBio.join('\n---\n') : '' %></textarea>
+      <span class="form-hint">Separate paragraphs with a line containing only "---"</span>
+    </div>
+
+    <div class="form-group">
+      <label for="aboutImageUrl">About Photo URL</label>
+      <input type="url" id="aboutImageUrl" name="aboutImageUrl" value="<%= settings.aboutImageUrl %>">
+    </div>
+
+    <hr style="margin: 32px 0; border: none; border-top: 1px solid #e8e8ed;">
+
+    <h2 style="margin-bottom: 16px;">Contact</h2>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" value="<%= settings.email %>">
+    </div>
+
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" value="<%= settings.location %>">
+    </div>
+
+    <div class="form-group">
+      <label for="contactTitle">Contact Page Title</label>
+      <input type="text" id="contactTitle" name="contactTitle" value="<%= settings.contactTitle %>">
+      <span class="form-hint">e.g., "Film / Commercial Director"</span>
+    </div>
+
+    <div class="form-group">
+      <label for="contactTagline">Contact Tagline</label>
+      <input type="text" id="contactTagline" name="contactTagline" value="<%= settings.contactTagline %>">
+    </div>
+
+    <hr style="margin: 32px 0; border: none; border-top: 1px solid #e8e8ed;">
+
+    <h2 style="margin-bottom: 16px;">Social Links</h2>
+
+    <div class="form-group">
+      <label for="instagramUrl">Instagram URL</label>
+      <input type="url" id="instagramUrl" name="instagramUrl" value="<%= settings.instagramUrl %>">
+    </div>
+
+    <div class="form-group">
+      <label for="youtubeUrl">YouTube URL</label>
+      <input type="url" id="youtubeUrl" name="youtubeUrl" value="<%= settings.youtubeUrl %>">
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn--primary">Save Settings</button>
+    </div>
+  </form>
+</div>

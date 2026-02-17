@@ -1,0 +1,75 @@
+<h1><%= isEdit ? 'Edit Film' : 'Add Film' %></h1>
+
+<% if (errors) { %>
+  <div class="alert alert--error"><%= errors %></div>
+<% } %>
+
+<div class="card">
+  <form method="POST" action="<%= isEdit ? '/admin/films/' + film._id : '/admin/films' %>">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= film ? film.title : '' %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="slug">Slug</label>
+      <input type="text" id="slug" name="slug" value="<%= film ? film.slug : '' %>" required>
+      <span class="form-hint">URL-friendly identifier (e.g., "the-last-frame")</span>
+    </div>
+
+    <div class="form-group">
+      <label for="year">Year</label>
+      <input type="number" id="year" name="year" value="<%= film ? film.year : '' %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="genre">Genre</label>
+      <input type="text" id="genre" name="genre" value="<%= film ? film.genre : '' %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="type">Type</label>
+      <input type="text" id="type" name="type" value="<%= film ? film.type : '' %>" required>
+      <span class="form-hint">e.g., Fiction, Documentary</span>
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Duration</label>
+      <input type="text" id="duration" name="duration" value="<%= film ? film.duration : '' %>" required>
+      <span class="form-hint">e.g., "22 minutes"</span>
+    </div>
+
+    <div class="form-group">
+      <label for="synopsis">Synopsis</label>
+      <textarea id="synopsis" name="synopsis" required><%= film ? film.synopsis : '' %></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="awards">Awards</label>
+      <textarea id="awards" name="awards"><%= film && film.awards ? (Array.isArray(film.awards) ? film.awards.join('\n') : film.awards) : '' %></textarea>
+      <span class="form-hint">One award per line</span>
+    </div>
+
+    <div class="form-group">
+      <label for="premiereStatus">Premiere Status</label>
+      <input type="text" id="premiereStatus" name="premiereStatus" value="<%= film ? (film.premiereStatus || '') : '' %>">
+      <span class="form-hint">Leave blank if already premiered</span>
+    </div>
+
+    <div class="form-group">
+      <label for="thumbnail">Thumbnail URL</label>
+      <input type="url" id="thumbnail" name="thumbnail" value="<%= film ? film.thumbnail : '' %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="sortOrder">Sort Order</label>
+      <input type="number" id="sortOrder" name="sortOrder" value="<%= film ? (film.sortOrder || 0) : 0 %>">
+      <span class="form-hint">Lower numbers appear first</span>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn--primary"><%= isEdit ? 'Save Changes' : 'Create Film' %></button>
+      <a href="/admin/films" class="btn btn--secondary">Cancel</a>
+    </div>
+  </form>
+</div>

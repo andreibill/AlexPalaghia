@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h1>Gallery</h1>
+  <a href="/admin/gallery/new" class="btn btn--primary">Add Photo</a>
+</div>
+
+<% if (photos.length === 0) { %>
+  <div class="empty-state">
+    <p>No photos yet.</p>
+    <a href="/admin/gallery/new" class="btn btn--primary">Add your first photo</a>
+  </div>
+<% } else { %>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Preview</th>
+        <th>Alt Text</th>
+        <th>Order</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% photos.forEach(function(photo) { %>
+        <tr>
+          <td><img src="<%= photo.src %>" alt="<%= photo.alt %>" class="gallery-preview"></td>
+          <td><%= photo.alt %></td>
+          <td><%= photo.sortOrder %></td>
+          <td class="data-table__actions">
+            <a href="/admin/gallery/<%= photo._id %>/edit" class="btn btn--secondary btn--sm">Edit</a>
+            <form method="POST" action="/admin/gallery/<%= photo._id %>/delete" onsubmit="return confirm('Delete this photo?')">
+              <button type="submit" class="btn btn--danger btn--sm">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>

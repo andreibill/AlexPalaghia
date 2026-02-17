@@ -1,0 +1,31 @@
+<h1><%= isEdit ? 'Edit Photo' : 'Add Photo' %></h1>
+
+<% if (errors) { %>
+  <div class="alert alert--error"><%= errors %></div>
+<% } %>
+
+<div class="card">
+  <form method="POST" action="<%= isEdit ? '/admin/gallery/' + photo._id : '/admin/gallery' %>">
+    <div class="form-group">
+      <label for="src">Image URL</label>
+      <input type="url" id="src" name="src" value="<%= photo ? photo.src : '' %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="alt">Alt Text</label>
+      <input type="text" id="alt" name="alt" value="<%= photo ? photo.alt : '' %>" required>
+      <span class="form-hint">Descriptive text for accessibility</span>
+    </div>
+
+    <div class="form-group">
+      <label for="sortOrder">Sort Order</label>
+      <input type="number" id="sortOrder" name="sortOrder" value="<%= photo ? (photo.sortOrder || 0) : 0 %>">
+      <span class="form-hint">Lower numbers appear first</span>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn--primary"><%= isEdit ? 'Save Changes' : 'Add Photo' %></button>
+      <a href="/admin/gallery" class="btn btn--secondary">Cancel</a>
+    </div>
+  </form>
+</div>

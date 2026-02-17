@@ -1,0 +1,43 @@
+<div class="page-header">
+  <h1>Films</h1>
+  <a href="/admin/films/new" class="btn btn--primary">Add Film</a>
+</div>
+
+<% if (films.length === 0) { %>
+  <div class="empty-state">
+    <p>No films yet.</p>
+    <a href="/admin/films/new" class="btn btn--primary">Add your first film</a>
+  </div>
+<% } else { %>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Title</th>
+        <th>Year</th>
+        <th>Genre</th>
+        <th>Type</th>
+        <th>Order</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% films.forEach(function(film) { %>
+        <tr>
+          <td><img src="<%= film.thumbnail %>" alt="<%= film.title %>" class="thumb-preview"></td>
+          <td><strong><%= film.title %></strong></td>
+          <td><%= film.year %></td>
+          <td><%= film.genre %></td>
+          <td><%= film.type %></td>
+          <td><%= film.sortOrder %></td>
+          <td class="data-table__actions">
+            <a href="/admin/films/<%= film._id %>/edit" class="btn btn--secondary btn--sm">Edit</a>
+            <form method="POST" action="/admin/films/<%= film._id %>/delete" onsubmit="return confirm('Delete this film?')">
+              <button type="submit" class="btn btn--danger btn--sm">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } %>
