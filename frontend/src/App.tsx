@@ -6,6 +6,7 @@ import Films from './pages/Films';
 import FilmDetail from './pages/FilmDetail';
 import Commercial from './pages/Commercial';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="films" element={<Films />} />
         <Route path="films/:slug" element={<FilmDetail />} />
         <Route path="commercial" element={<Commercial />} />
+        <Route path="gallery" element={<Gallery />} />
         <Route path="contact" element={<Contact />} />
       </Route>
     </Routes>

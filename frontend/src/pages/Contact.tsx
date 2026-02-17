@@ -7,6 +7,9 @@ export default function Contact() {
       <div className="contact__content">
         <h1 className="contact__name">Alex Palaghia</h1>
         <p className="contact__title">Film / Commercial Director</p>
+        <p className="page-description">
+          Let's create something unforgettable together.
+        </p>
         <p className="contact__location">Bucharest, Romania</p>
 
         <a className="contact__email" href="mailto:contact@alexpalaghia.com">

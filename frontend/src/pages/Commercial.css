@@ -46,3 +46,13 @@
   color: var(--color-text-muted);
   font-size: 1.1rem;
 }
+
+@media (max-width: 768px) {
+  .commercial-list {
+    gap: 2.5rem;
+  }
+
+  .commercial-empty {
+    padding: 3rem 0;
+  }
+}

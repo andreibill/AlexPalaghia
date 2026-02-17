@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100vh;    /* fallback */
+  min-height: 100dvh;
   padding: var(--nav-height) var(--page-padding-x) 0;
   text-align: center;
 }
@@ -68,4 +69,10 @@
 
 .contact__socials a:hover {
   color: var(--color-accent-primary);
+}
+
+@media (max-width: 768px) {
+  .contact .page-description {
+    margin-bottom: 1.5rem;
+  }
 }

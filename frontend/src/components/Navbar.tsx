@@ -6,6 +6,7 @@ const links = [
   { to: '/about', label: 'About' },
   { to: '/films', label: 'Films' },
   { to: '/commercial', label: 'Commercial' },
+  { to: '/gallery', label: 'Gallery' },
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -20,8 +21,13 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--menu-open' : ''}`}>
       <div className="navbar__inner">
         <TransitionLink to="/" className="navbar__logo" onClick={() => setMenuOpen(false)}>
           Alex Palaghia

@@ -5,7 +5,9 @@ import './Commercial.css';
 export default function Commercial() {
   return (
     <div className="page">
-      <h1>Commercial</h1>
+      <p className="page-description">
+        Brand stories brought to life through cinematic direction.
+      </p>
 
       {commercials.length === 0 ? (
         <p className="commercial-empty">Commercial work coming soon.</p>

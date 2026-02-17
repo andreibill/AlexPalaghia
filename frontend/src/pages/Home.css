@@ -7,7 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  min-height: 100vh;    /* fallback */
+  min-height: 100dvh;
   padding: var(--nav-height) var(--page-padding-x) 0;
   text-align: center;
   overflow: hidden;
@@ -59,8 +60,10 @@
 .home-hero__scroll {
   position: absolute;
   bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -189,9 +192,20 @@
   }
 }
 
+@media (max-width: 768px) {
+  .home-section {
+    padding: 3rem var(--page-padding-x);
+  }
+
+  .home-films__grid {
+    gap: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
   .home-films__grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 

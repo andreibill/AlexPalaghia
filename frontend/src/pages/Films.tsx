@@ -4,6 +4,9 @@ import { films } from '../data/films';
 export default function Films() {
   return (
     <div className="page">
+      <p className="page-description">
+        A curated collection of narrative and documentary works.
+      </p>
       <div className="films-grid">
         {films.map((film) => (
           <TransitionLink key={film.slug} to={`/films/${film.slug}`} className="film-card">

@@ -1,6 +1,9 @@
 export default function About() {
   return (
     <div className="page">
+      <p className="page-description">
+        The story behind the lens — a journey through cinema, creativity, and craft.
+      </p>
       <div className="about-content">
         <img
           className="about-image"
