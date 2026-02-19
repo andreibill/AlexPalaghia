@@ -10,6 +10,11 @@ export interface IFilm extends Document {
   synopsis: string;
   awards: string[];
   premiereStatus?: string;
+  dop?: string;
+  screenwriter?: string;
+  editing?: string;
+  sound?: string;
+  cast?: string[];
   thumbnail: string;
   sortOrder: number;
 }
@@ -25,6 +30,11 @@ const filmSchema = new Schema<IFilm>(
     synopsis: { type: String, required: true },
     awards: { type: [String], default: [] },
     premiereStatus: { type: String, default: '' },
+    dop: { type: String, default: '' },
+    screenwriter: { type: String, default: '' },
+    editing: { type: String, default: '' },
+    sound: { type: String, default: '' },
+    cast: { type: [String], default: [] },
     thumbnail: { type: String, required: true },
     sortOrder: { type: Number, default: 0 },
   },

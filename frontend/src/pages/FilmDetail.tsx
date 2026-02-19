@@ -67,6 +67,44 @@ export default function FilmDetail() {
             </div>
           )}
 
+          {(film.dop || film.screenwriter || film.editing || film.sound || (film.cast && film.cast.length > 0)) && (
+            <div className="film-detail__crew">
+              <h3>Team</h3>
+              <dl className="film-detail__crew-list">
+                {film.dop && (
+                  <div className="film-detail__crew-item">
+                    <dt>DOP</dt>
+                    <dd>{film.dop}</dd>
+                  </div>
+                )}
+                {film.screenwriter && (
+                  <div className="film-detail__crew-item">
+                    <dt>Screenwriter</dt>
+                    <dd>{film.screenwriter}</dd>
+                  </div>
+                )}
+                {film.editing && (
+                  <div className="film-detail__crew-item">
+                    <dt>Editing</dt>
+                    <dd>{film.editing}</dd>
+                  </div>
+                )}
+                {film.sound && (
+                  <div className="film-detail__crew-item">
+                    <dt>Sound</dt>
+                    <dd>{film.sound}</dd>
+                  </div>
+                )}
+                {film.cast && film.cast.length > 0 && (
+                  <div className="film-detail__crew-item">
+                    <dt>Cast</dt>
+                    <dd>{film.cast.join(', ')}</dd>
+                  </div>
+                )}
+              </dl>
+            </div>
+          )}
+
           {film.premiereStatus && (
             <p className="film-detail__premiere">{film.premiereStatus}</p>
           )}

@@ -22,11 +22,12 @@ export default function Contact() {
         <p className="page-description">{tagline}</p>
         <p className="contact__location">{location}</p>
 
-        <a className="contact__email" href={`mailto:${email}`}>
-          {email}
-        </a>
-
         <nav className="contact__socials" aria-label="Social links">
+          <a href={`mailto:${email}`} aria-label="Email">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z" />
+            </svg>
+          </a>
           {instagram && (
             <a
               href={instagram}

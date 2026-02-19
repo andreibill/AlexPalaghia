@@ -93,8 +93,7 @@ export default function Home() {
                     loading="lazy"
                   />
                   <div className="film-card__overlay">
-                    <h3 className="film-card__title">{film.title}</h3>
-                    <span className="film-card__year">{film.year}</span>
+                    <span className="film-card__more">More</span>
                   </div>
                 </TransitionLink>
               ))}
@@ -110,10 +109,6 @@ export default function Home() {
           <div className="home-section__inner home-cta__inner">
             <span className="home-section__label">Contact</span>
             <h2>{settings?.ctaHeading || "Let's work together"}</h2>
-            <p className="home-cta__text">
-              {settings?.ctaText ||
-                "Have a project in mind? Get in touch and let's create something unforgettable."}
-            </p>
             <TransitionLink to="/contact" className="home-cta__button">
               Get in touch
             </TransitionLink>

@@ -31,7 +31,7 @@ router.get('/new', async (_req: Request, res: Response) => {
 
 // Create film
 router.post('/', async (req: Request, res: Response) => {
-  const { title, slug, year, genre, type, duration, synopsis, awards, premiereStatus, thumbnail, sortOrder } = req.body;
+  const { title, slug, year, genre, type, duration, synopsis, awards, premiereStatus, dop, screenwriter, editing, sound, cast, thumbnail, sortOrder } = req.body;
   try {
     await Film.create({
       title,
@@ -43,6 +43,11 @@ router.post('/', async (req: Request, res: Response) => {
       synopsis,
       awards: awards ? awards.split('\n').map((a: string) => a.trim()).filter(Boolean) : [],
       premiereStatus: premiereStatus || '',
+      dop: dop || '',
+      screenwriter: screenwriter || '',
+      editing: editing || '',
+      sound: sound || '',
+      cast: cast ? cast.split('\n').map((a: string) => a.trim()).filter(Boolean) : [],
       thumbnail,
       sortOrder: Number(sortOrder) || 0,
     });
@@ -80,7 +85,7 @@ router.get('/:id/edit', async (req: Request, res: Response) => {
 
 // Update film
 router.post('/:id', async (req: Request, res: Response) => {
-  const { title, slug, year, genre, type, duration, synopsis, awards, premiereStatus, thumbnail, sortOrder } = req.body;
+  const { title, slug, year, genre, type, duration, synopsis, awards, premiereStatus, dop, screenwriter, editing, sound, cast, thumbnail, sortOrder } = req.body;
   try {
     await Film.findByIdAndUpdate(req.params.id, {
       title,
@@ -92,6 +97,11 @@ router.post('/:id', async (req: Request, res: Response) => {
       synopsis,
       awards: awards ? awards.split('\n').map((a: string) => a.trim()).filter(Boolean) : [],
       premiereStatus: premiereStatus || '',
+      dop: dop || '',
+      screenwriter: screenwriter || '',
+      editing: editing || '',
+      sound: sound || '',
+      cast: cast ? cast.split('\n').map((a: string) => a.trim()).filter(Boolean) : [],
       thumbnail,
       sortOrder: Number(sortOrder) || 0,
     });

@@ -22,8 +22,7 @@ export default function Films() {
               loading="lazy"
             />
             <div className="film-card__overlay">
-              <h3 className="film-card__title">{film.title}</h3>
-              <span className="film-card__year">{film.year}</span>
+              <span className="film-card__more">More</span>
             </div>
           </TransitionLink>
         ))}

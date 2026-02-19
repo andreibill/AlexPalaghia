@@ -21,6 +21,11 @@ export interface Film {
   synopsis: string;
   awards?: string[];
   premiereStatus?: string;
+  dop?: string;
+  screenwriter?: string;
+  editing?: string;
+  sound?: string;
+  cast?: string[];
   thumbnail: string;
   sortOrder: number;
   createdAt: string;

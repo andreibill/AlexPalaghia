@@ -57,6 +57,32 @@
     </div>
 
     <div class="form-group">
+      <label for="dop">DOP</label>
+      <input type="text" id="dop" name="dop" value="<%= film ? (film.dop || '') : '' %>">
+    </div>
+
+    <div class="form-group">
+      <label for="screenwriter">Screenwriter</label>
+      <input type="text" id="screenwriter" name="screenwriter" value="<%= film ? (film.screenwriter || '') : '' %>">
+    </div>
+
+    <div class="form-group">
+      <label for="editing">Editing</label>
+      <input type="text" id="editing" name="editing" value="<%= film ? (film.editing || '') : '' %>">
+    </div>
+
+    <div class="form-group">
+      <label for="sound">Sound</label>
+      <input type="text" id="sound" name="sound" value="<%= film ? (film.sound || '') : '' %>">
+    </div>
+
+    <div class="form-group">
+      <label for="cast">Cast</label>
+      <textarea id="cast" name="cast"><%= film && film.cast ? (Array.isArray(film.cast) ? film.cast.join('\n') : film.cast) : '' %></textarea>
+      <span class="form-hint">One actor per line</span>
+    </div>
+
+    <div class="form-group">
       <label for="thumbnail">Thumbnail URL</label>
       <input type="url" id="thumbnail" name="thumbnail" value="<%= film ? film.thumbnail : '' %>" required>
     </div>
